@@ -1,19 +1,18 @@
-function FizzBuzz(number) {
-  if ((number % 3 === 0) && (number % 5 === 0)) {
-    //console.log("Fizzbuzz");
-    return "FizzBuzz";
-    //debugger;
-  }
-  else if (number % 3 === 0) {
-    //console.log("Fizz");
-    return "Fizz";
-  }
-  else if (number % 5 == 0) {
-    //console.log("Buzz");
-    return "Buzz";
-  };
-};
+function FizzBuzz() {
+}
 
-for (var number = 1; number <101; number++) {
-    console.log("number: " + number + " returns: " + FizzBuzz(number));
+FizzBuzz.prototype.play = function (number) {
+  if (this._isDivisibleBy(15, number)) {
+    return 'FizzBuzz';
+  } else if(this._isDivisibleBy(5, number)) {
+    return 'Buzz';
+  } else if(this._isDivisibleBy(3, number)) {
+    return 'Fizz';
+  } else {
+    return number;
+  }
+}
+
+FizzBuzz.prototype._isDivisibleBy = function (divisor, number) {
+  return number % divisor === 0;
 }
